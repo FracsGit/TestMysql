@@ -15,7 +15,7 @@ namespace TestMysql
         public static string table = "chartbl"; //character是mysql保留字，表明需用database.table，如zero.character
 
         static void Main()
-        {
+        {         
             Read();
             Count();
             Insert();
@@ -57,8 +57,8 @@ namespace TestMysql
             try
             {
                 string para1 = "1";
-                string para2 = "志津香";
-                string sql = "select * from " + table + " where id=@para1 and name=@para2";
+                string para2 = "'志津香'";
+                string sql = "select * from " + table + " where id=1 and name='志津香'";
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
                 cmd.Parameters.AddWithValue("para1", para1);
                 cmd.Parameters.AddWithValue("para2", para2);
@@ -73,7 +73,7 @@ namespace TestMysql
                         + reader.GetString("gender") + reader.GetString("rarity") + reader.GetString("nature")
                         + reader.GetString("occupation") + reader.GetString("ability1") + reader.GetString("ability2")
                         + reader.GetString("con") + reader.GetString("str") + reader.GetString("dex")
-                        + reader.GetString("int") + reader.GetString("def") + reader.GetString("res")
+                        + reader.GetString("itg") + reader.GetString("def") + reader.GetString("res")
                         + reader.GetString("skill0") + reader.GetString("skill1") + reader.GetString("skill2")
                         + reader.GetString("skill3") + reader.GetString("skill4"));
                 }
